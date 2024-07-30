@@ -6,17 +6,18 @@ namespace SplashAndSolve {
     public class ProjectileThrower : MonoBehaviour
     {
         public static Action<int> OnBallonThrow;
+        [SerializeField] private float rayDistance = 10f;
         [SerializeField] private float gravityMultiplier = 1f;
         [SerializeField] private Transform throwFrom;
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private GameObject hitMarkerPrefab;
+        private int ammoCount;
         private GameObject hitMarker;
-        [SerializeField] private byte ammoCount = 10;
-
         private Camera mainCamera;
 
         private void Awake()
         {
+            ammoCount = AppConstants.MAX_AMMO;
             OnBallonThrow?.Invoke(ammoCount);
         }
 
@@ -36,8 +37,12 @@ namespace SplashAndSolve {
             hitMarker = Instantiate(hitMarkerPrefab);
         }
 
-
-        public float rayDistance = 10f;
+        public void RefillAmmo()
+        {
+            ammoCount = AppConstants.MAX_AMMO;
+            OnBallonThrow?.Invoke(ammoCount);
+        }
+        
         private void Update()
         {
 

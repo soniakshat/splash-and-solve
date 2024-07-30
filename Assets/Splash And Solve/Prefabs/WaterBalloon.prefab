@@ -116,7 +116,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 286aa405ccb568e47813e5c039c14048, type: 2}
   - {fileID: 2100000, guid: 7c726812d8b495c4b839d90de9d57d08, type: 2}
   - {fileID: 2100000, guid: 50294cbe948612049a41e97c4f39a562, type: 2}
-  waterSplash: {fileID: 0}
+  prefWaterSplash: {fileID: 4095328370762674943, guid: c5dc397d4da94da4190c6c9eed1c86aa, type: 3}
+  particleWaterSplash: {fileID: 0}
   balloonPop: {fileID: 8300000, guid: c63d05a04c58c104981ce4551407aef0, type: 3}
 --- !u!54 &-2926471805038113697
 Rigidbody:

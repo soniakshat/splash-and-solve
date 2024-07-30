@@ -9,6 +9,7 @@ namespace SplashAndSolve
         [SerializeField] private TMP_Text txtValue;
         private string answer;
         private GameObject player;
+        public bool answered = false;
 
         private void Start()
         {
@@ -40,6 +41,7 @@ namespace SplashAndSolve
             txtValue.color = Color.white;
             this.answer = answer;
             txtValue.text = answer;
+            answered = false;
         }
 
         public string GetHitAnswer()

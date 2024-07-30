@@ -3,11 +3,19 @@ using UnityEngine;
 
 namespace SplashAndSolve
 {
+    enum TargetType
+    {
+        Static,
+        Moving
+    }
+
     public class TargetManager : MonoBehaviour
     {
-        [SerializeField] List<Transform> spawnPoints;
-        [SerializeField] Target prefabTarget;
-        List<Target> targets = new List<Target>();
+        [SerializeField] private List<Transform> spawnPoints;
+        [SerializeField] private Target prefabTarget;
+        [SerializeField] private TargetType targetType;
+        private List<Target> targets = new List<Target>();
+        
 
         private void Awake()
         {
@@ -17,7 +25,7 @@ namespace SplashAndSolve
             }
         }
 
-        public List<Target> SetTargets()
+        public List<Target> SetStaticTargets()
         {
             List<Transform> selectedTransforms = spawnPoints.GetRandomElements(4);
 
@@ -38,16 +46,12 @@ namespace SplashAndSolve
             return targets;
         }
 
-        public void RemoveAllTargets()
+        public void RemoveStaticTargets()
         {
             if (targets.Count == 0)
             {
                 return;
             }
-            //foreach (var tar in targets)
-            //{
-            //    Destroy(tar.gameObject);
-            //}
             targets.Clear();
         }
     }

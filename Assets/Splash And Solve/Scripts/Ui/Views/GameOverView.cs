@@ -6,6 +6,13 @@ namespace SplashAndSolve
 {
     public class GameOverView : MonoBehaviour
     {
+        [SerializeField] private TMPro.TMP_Text txtGameOver;
+
+        private void OnEnable()
+        {
+            txtGameOver.text = $"Game Over\nYour score was {ScoreManager.Instance.GetScore()}";
+        }
+
         public void OnRestartButtonClick()
         {
             QuestionManager.Instance.ResetQuestions();

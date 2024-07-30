@@ -32,7 +32,7 @@ namespace SplashAndSolve {
                 CustomLog.Log("Questions", "No More Questions Available");
                 UiManager.Instance.SetQuestion("No More Questions! Game Over");
                 UiManager.Instance.ShowGameOver();
-                targetManager.RemoveAllTargets();
+                targetManager.RemoveStaticTargets();
                 return;
             }
 
@@ -41,7 +41,7 @@ namespace SplashAndSolve {
             List<string> options = _currentQuestion.GetAllOptions();
             UiManager.Instance.SetQuestion(_currentQuestion.GetQuestion());
             
-            _targets = targetManager.SetTargets();
+            _targets = targetManager.SetStaticTargets();
             for(int i=0; i<_targets.Count; i++)
             {
                 _targets[i].SetAnswer(options[i]);
@@ -58,7 +58,8 @@ namespace SplashAndSolve {
             _questions.Clear();
             _currentQuestion = null;
             UiManager.Instance.SetQuestion("");
-            targetManager.RemoveAllTargets();
+            targetManager.RemoveStaticTargets();
+            // Refill Ammo here.
         }
     }
 }
