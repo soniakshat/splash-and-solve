@@ -19,6 +19,7 @@ namespace SplashAndSolve {
 
         public void GenerateQuestions()
         {
+            ProjectileThrower.Instance.RefillAmmo();
             for (int i = 0; i < AppConstants.QUESTION_COUNT; i++)
             {
                 _questions.Add(QuestionGenerator.GenerateQuestion());

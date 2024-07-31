@@ -1,11 +1,11 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SplashAndSolve {
     public class ProjectileThrower : MonoBehaviour
     {
         public static Action<int> OnBallonThrow;
+        public static ProjectileThrower Instance;
         [SerializeField] private float rayDistance = 10f;
         [SerializeField] private float gravityMultiplier = 1f;
         [SerializeField] private Transform throwFrom;
@@ -17,6 +17,7 @@ namespace SplashAndSolve {
 
         private void Awake()
         {
+            Instance = this;
             ammoCount = AppConstants.MAX_AMMO;
             OnBallonThrow?.Invoke(ammoCount);
         }
@@ -71,11 +72,16 @@ namespace SplashAndSolve {
             {
                 CustomLog.Log("Out of ammo.");
                 OnBallonThrow?.Invoke(ammoCount);
-                //return;
+                return;
             }
+
             CustomLog.Log("Throw Projectile...");
             ammoCount--;
             OnBallonThrow?.Invoke(ammoCount);
+            if(ammoCount == 0)
+            {
+                UiManager.Instance.ShowGameOver();
+            }
 
             Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
             RaycastHit hit;

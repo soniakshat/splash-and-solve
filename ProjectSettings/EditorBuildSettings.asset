@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Splash And Solve/Scene/MainScene.unity
+    guid: 858c5fd03bf25c64d8f8f19f6c405fa1
   m_configObjects: {}

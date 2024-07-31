@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,11 @@ namespace SplashAndSolve
             return;
 #endif
             Application.Quit();
+        }
+
+        public void SetGameOverTest(string v)
+        {
+            txtGameOver.text = $"Out of Ammo. Game Over\nYour score was {ScoreManager.Instance.GetScore()}";
         }
     }
 }

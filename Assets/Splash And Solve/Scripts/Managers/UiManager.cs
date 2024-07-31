@@ -23,8 +23,12 @@ namespace SplashAndSolve
             playerHud.SetScore(score);
         }
 
-        public void ShowGameOver()
+        public void ShowGameOver(string message=null)
         {
+            if(message != null)
+            {
+                gameOverPanel.SetGameOverTest("Out of ammunation.");
+            }
             gameOverPanel.gameObject.SetActive(true);
         }
 
